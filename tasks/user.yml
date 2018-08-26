@@ -1,0 +1,7 @@
+---
+- name: Update gitlab-runner user
+  user:
+    username: "gitlab-runner"
+    groups: [ "docker" ]
+    uid: 1001
+    ssh_key: "{{ gitlab_runner_private_key }}"

@@ -1,6 +1,6 @@
 ---
 # Change this variable value to 'gitlab-runner' for versions >= 10.x
-gitlab_runner_package_name: 'gitlab-ci-multi-runner'
+gitlab_runner_package_name: 'gitlab-runner'
 
 # Maximum number of global jobs to run concurrently
 gitlab_runner_concurrent: '{{ ansible_processor_vcpus }}'
@@ -35,3 +35,8 @@ gitlab_runner_ssh_identity_file: ''
 gitlab_runner_locked: 'false'
 # Custom environment variables injected to build environment
 gitlab_runner_env_vars: []
+
+skip_engine: true
+skip_group: true
+skip_docker_py: true
+

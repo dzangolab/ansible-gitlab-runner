@@ -1,2 +1,3 @@
 ---
-# vars file for gitlab-runner
+gitlab_runner_registration_token: "{{ gitlab_runner_secrets.gitlab-runner-token }}"
+gitlab_runner_private_key: "{ gitlab_runner_secrets.gitlab_runner_private_key }}"
