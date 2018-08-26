@@ -36,7 +36,3 @@ gitlab_runner_locked: 'false'
 # Custom environment variables injected to build environment
 gitlab_runner_env_vars: []
 
-skip_engine: true
-skip_group: true
-skip_docker_py: true
-
