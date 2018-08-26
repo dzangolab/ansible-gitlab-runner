@@ -1,8 +1,9 @@
 ---
 galaxy_info:
-  author: Erik-jan Riemers
-  description: GitLab Runner
-  license: MIT
+  role_name: unitedasian.gitlab_runner
+  author: Olivier Pichon <op@united-asian.com>
+  description: Install Gitlab runners
+  company: United Asian Management Limited
   min_ansible_version: 2.0
   platforms:
   - name: EL
