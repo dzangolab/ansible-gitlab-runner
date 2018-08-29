@@ -11,7 +11,7 @@
     owner: "gitlab-runner"
     group: "gitlab-runner"
     state: directory
-    mode: '0700'
+    mode: "0700"
 
 - name: Adding user's private key
   template:
@@ -19,4 +19,5 @@
     dest: "/home/gitlab-runner/.ssh/id_rsa"
     owner: "gitlab-runner"
     group: "gitlab-runner"
-    mode: '0600'
+    mode: "0600"
+  when: gitlab-runner-private-key-secret-id is defined
