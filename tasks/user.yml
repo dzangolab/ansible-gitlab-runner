@@ -20,4 +20,4 @@
     owner: "gitlab-runner"
     group: "gitlab-runner"
     mode: "0600"
-  when: gitlab-runner-private-key-secret-id is defined
+  when: gitlab_runner_private_key_secret_id
