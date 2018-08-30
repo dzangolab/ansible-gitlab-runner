@@ -36,6 +36,7 @@ gitlab_runner_env_vars: []
 
 # Secrets
 gitlab_runner_token_secret_id: "gitlab-runner-token"
+gitlab_runner_private_key_secret_id: false
 
 # AWS profile
 aws_profile: "default"
