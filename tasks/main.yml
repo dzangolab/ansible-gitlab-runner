@@ -3,6 +3,7 @@
   import_tasks: secrets.yml
 
 - name: Install GitLab Runner (Debian)
+  become: yes
   import_tasks: install-debian.yml
   when: ansible_os_family == 'Debian'
 
@@ -11,6 +12,7 @@
   when: ansible_os_family == 'RedHat'
 
 - name: Set global options
+  become: yes
   import_tasks: global-setup.yml
 
 - name: Register GitLab Runner
@@ -18,5 +20,6 @@
   when: gitlab_runner_registration_token != ''
 
 - name: Update4 gitlab-runner user
+  become: yes
   import_tasks: user.yml
   when: gitlab_runner_registration_token != ''
