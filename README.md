@@ -1,13 +1,56 @@
-GitLab Runner [![Build Status](https://api.travis-ci.org/riemers/ansible-gitlab-runner.svg?branch=master)](https://travis-ci.org/riemers/ansible-gitlab-runner) [![Ansible Role](https://img.shields.io/badge/role-riemers.gitlab--runner-blue.svg?maxAge=2592000)](https://galaxy.ansible.com/riemers/gitlab-runner/)
-=============
+GitLab Runner Ansible role
+==========================
 
-This role will install the [official GitLab Runner](https://gitlab.com/gitlab-org/gitlab-runner)
-(fork from haroldb) with updates. Needed something simple and working, this did the trick for me. Open for changes though.
+This role will install a [GitLab Runner](https://gitlab.com/gitlab-org/gitlab-runner) and register it with a Gitlab server.
 
 Requirements
 ------------
 
 This role requires Ansible 2.0 or higher.
+
+This role requires a **Gitlab secret registration token** issued byt the Gitlab server that will register the runner. The role expects to find this token from an AWS secret.
+
+Prerequisites
+-------------
+
+* Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
+* Obtain your AWS credentials from United Asian Engineering Limited and configure AWS CLI for a profile named `dzangolab`. If you want to ues a different profile name, make a note of it for later use.
+* Add the role to your `requirements.yml` file
+```
+- src: git@gitlab.united-asian.com:devops/ansible-gitlab-runner.git
+  name: dzangolab.gitlab-runner
+  scm: git
+  version: "0.2"
+```
+* Install the role
+``` bash
+ansible-galaxy install -r requirements.yml
+```
+
+Usage
+-----
+
+Add the role to your ansible playbook
+
+```yaml
+- hosts: all
+  remote_user: root
+  vars_files:
+    - vars/main.yml
+  roles:
+    - { role: dzangolab.gitlab-runner }
+```
+
+Inside `vars/main.yml`
+```yaml
+gitlab_runner_tags:
+  - node
+  - ruby
+  - mysql
+gitlab_runner_docker_volumes:
+  - "/var/run/docker.sock:/var/run/docker.sock"
+  - "/cache"
+```
 
 Role Variables
 --------------
@@ -55,27 +98,3 @@ Variables to set s3 as a shared cache server. If set it requires variables liste
 `gitlab_runner_cache_cache_shared`
 
 See the [config for more options](https://github.com/riemers/ansible-gitlab-runner/blob/master/tasks/register-runner.yml)
-
-Example Playbook
-----------------
-```yaml
-- hosts: all
-  remote_user: root
-  vars_files:
-    - vars/main.yml
-  roles:
-    - { role: riemers.gitlab-runner }
-```
-
-Inside `vars/main.yml`
-```yaml
-gitlab_runner_registration_token: 'HUzTMgnxk17YV8Rj8ucQ'
-gitlab_runner_description: 'Example GitLab Runner'
-gitlab_runner_tags:
-  - node
-  - ruby
-  - mysql
-gitlab_runner_docker_volumes:
-  - "/var/run/docker.sock:/var/run/docker.sock"
-  - "/cache"
-```

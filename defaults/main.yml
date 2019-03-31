@@ -41,6 +41,6 @@ gitlab_runner_token_secret_id: "gitlab-runner-registration-token"
 gitlab_runner_private_key_secret_id: false
 
 # AWS profile
-aws_profile: "dzangolab"
+gitlab_runner_aws_profile: "dzangolab"
 
-no_log: True
+gitlab_runner_no_log: True
