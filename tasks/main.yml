@@ -31,3 +31,7 @@
 
 - name: Configure GitLab Runner
   import_tasks: config-runners.yml
+
+- name: Update gitlab-runner user
+  become: yes
+  import_tasks: user.yml
