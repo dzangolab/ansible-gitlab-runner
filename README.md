@@ -30,7 +30,7 @@ ansible-galaxy install -r requirements.yml
 Usage
 -----
 
-Add the role to your ansible playbook
+Add the role to your ansible playbook:
 
 ```yaml
 - hosts: all
