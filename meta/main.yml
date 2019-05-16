@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  role_name: dzangolab.gitlab_runner
-  author: Olivier Pichon <op@dzangolab.com>
+  role_name: gitlab_runner
+  author: Olivier Pichon <op@dzango.com>
   description: Install Gitlab runners
   company: United Asian Engineering Limited
   min_ansible_version: 2.0
