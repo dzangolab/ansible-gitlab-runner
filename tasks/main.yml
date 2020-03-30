@@ -30,6 +30,7 @@
     loop_var: gitlab_runner
 
 - name: Configure GitLab Runner
+  become: yes
   import_tasks: config-runners.yml
 
 - name: Update gitlab-runner user
