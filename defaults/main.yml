@@ -14,6 +14,11 @@ gitlab_runner_no_log: True
 
 gitlab_runner_sentry_dsn: ''
 
+# User which execute builds
+gitlab_runner_build_user: "gitlab-runner"
+# Runner build directory
+gitlab_runner_working_dir: "/home/gitlab-runner"
+
 # A list of runners to register and configure
 gitlab_runner_runners:
     # The identifier of the runner.

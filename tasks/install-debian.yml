@@ -26,3 +26,7 @@
   apt:
     name: "{{ gitlab_runner_package }}"
     state: "{{ gitlab_runner_package_state }}"
+
+- name: Setup GitLab Runner as a service
+  shell: "gitlab-runner install --user={{ gitlab_runner_build_user }} --working-directory={{ gitlab_runner_working_dir }}"
+  become: true
