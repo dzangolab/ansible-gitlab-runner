@@ -1,7 +1,4 @@
 ---
-- name: Get secrets
-  import_tasks: secrets.yml
-
 - name: Install GitLab Runner (Debian)
   become: yes
   import_tasks: install-debian.yml

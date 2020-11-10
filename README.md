@@ -45,7 +45,7 @@ Example Playbook
 
 Inside `vars/main.yml`
 ```yaml
-gitlab_runner_registration_token: 'HUzTMgnxk17YV8Rj8ucQ'
+gitlab_runner_registration_token: 'GITLAB_RUNNER_REGISTRATION_TOKEN'
 gitlab_runner_runners:
   - name: 'Example Docker GitLab Runner'
     executor: docker
